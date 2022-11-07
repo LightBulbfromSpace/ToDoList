@@ -31,7 +31,8 @@ function main($arguments): void
 		case 'list':
 			listCommand($arguments);
 			break;
-		case 'remove' || 'rm':
+		case 'remove':
+		case 'rm':
 			removeCommand($arguments);
 			break;
 		case 'report':

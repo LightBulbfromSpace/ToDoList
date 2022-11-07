@@ -4,9 +4,7 @@ function removeCommand($arguments)
 {
 	$todos = getToDosOrFail();
 
-	$todos = mapToDos($todos, $arguments, function($todo) {
-		return null;
-	});
+	$todos = mapToDos($todos, $arguments, fn($todo) => null);
 
 	storeToDos($todos);
 }
