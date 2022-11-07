@@ -2,7 +2,20 @@
 
 function listCommand($arguments)
 {
-	$todos = getToDosOrFail();
+	$time = null;
+
+	if(!empty($arguments))
+	{
+		$data = array_shift($arguments);
+		$time = strtotime($data);
+		if ($time === false)
+		{
+			echo "Invalid date\n";
+			exit(1);
+		}
+	}
+
+	$todos = getToDosOrFail($time);
 
 	foreach ($todos as $index => $todo)
 	{
