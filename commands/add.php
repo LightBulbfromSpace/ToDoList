@@ -6,7 +6,7 @@ function addCommand($arguments)
 
 	$toDo = [
 		'id' => uniqid('', false),
-		'task' => $task,
+		'title' => $task,
 		'completed' => false,
 		'created_at' => time(),
 		'updated_at' => null,

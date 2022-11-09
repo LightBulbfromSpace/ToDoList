@@ -23,7 +23,7 @@ function listCommand($arguments)
 			"[%s] %s. %s\n",
 			$todo['completed']? 'x': ' ',
 			$index + 1,
-			$todo['task']);
+			$todo['title']);
 		echo $res;
 	}
 }
