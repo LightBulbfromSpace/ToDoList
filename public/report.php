@@ -45,5 +45,6 @@ echo view('layout', [
 	'title' => 'ToDoList::Report',
 	'content' => view('pages/report', [
 		'report' => $report,
+		'menu' => getMenuData(),
 	])
 ]);

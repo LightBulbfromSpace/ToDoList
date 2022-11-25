@@ -1,5 +1,17 @@
 <?php
 
+function createToDo($title) :array
+{
+	return [
+		'id' => uniqid('', false),
+		'title' => $title,
+		'completed' => false,
+		'created_at' => time(),
+		'updated_at' => null,
+		'completed_at' => null,
+	];
+}
+
 function mapToDos(array $todos, array $positions, Closure $callback) :array
 {
 	foreach ($positions as $position)

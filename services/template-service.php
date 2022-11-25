@@ -21,3 +21,14 @@ function view(string $path, array $vars = []): string
 	require $absolutePath;
 	return ob_get_clean();
 }
+
+function truncate(string $str, ?int $maxLength = null) :string
+{
+	if ($maxLength === null || $maxLength > strlen($str))
+	{
+		return $str;
+	}
+
+	$cropped = substr($str,0, $maxLength);
+	return $cropped . '...';
+}
