@@ -16,6 +16,6 @@ if(isset($_COOKIE['VISIT_COUNTER']))
 
 setcookie('VISIT_COUNTER', json_encode($pages), [
 	'expires' => strtotime('+30 days'),
-	'secure' => false, // https only
+	'secure' => true, // https only
 	'httponly' => true, // http only
 ]);

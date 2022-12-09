@@ -1,5 +1,17 @@
 <?php
+
+use Todolist\Repository\TodoRepository;
+
 require_once __DIR__ . "/../boot.php";
+
+
+
+$repository = new TodoRepository;
+
+if(isset($_GET['date']))
+{
+	redirect('index.php?date=' . $_GET['date']);
+}
 
 $allToDos = prepareReportData();
 
@@ -40,11 +52,31 @@ $report = [
 	"Average number of completed tasks per day: $averageCompletedTasksPerDay",
 
 ];
-
-echo view('layout', [
-	'title' => 'ToDoList::Report',
-	'content' => view('pages/report', [
-		'report' => $report,
-		'menu' => getMenuData(),
-	])
-]);
+try
+{
+	echo view('layout', [
+		'title' => 'ToDoList::Report',
+		'content' => view('pages/report', [
+			'report' => $report,
+			'menu' => getMenuData(),
+		])
+	]);
+}
+catch (DatabaseConnectionException $e)
+{
+	ob_clean();
+	echo 'Cannot connect to database';
+	exit;
+}
+catch (DatabaseEncodingException $e)
+{
+	ob_clean();
+	echo 'Encoding error';
+	exit;
+}
+catch (Exception $e)
+{
+	ob_clean();
+	echo 'Something went wrong';
+	exit;
+}

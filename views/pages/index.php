@@ -1,10 +1,13 @@
 <?php
 /**
- * @var array $todos
+ * @var Todo[] $todos
  * @var bool $isHistory
  * @var array $errors
  * @var array $menu
  */
+
+use Todolist\models\Todo;
+
 ?>
 
 <main>
@@ -30,7 +33,7 @@
 
 
 	<?php if(!$isHistory): ?>
-	<form action="/" method="post">
+	<form action="/" method="POST">
 		<label>
 			<input type="text" name="newTitle" class="add-todo" required placeholder="New task">
 			<button type="submit">Save</button>
