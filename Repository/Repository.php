@@ -4,13 +4,14 @@ namespace Todolist\Repository;
 
 abstract class Repository
 {
+	public string $output = '';
+
 	public function getListOrFail(?array $filter = []) :array
 	{
 		$todos = $this->getList($filter);
 		if (empty($todos))
 		{
-			echo 'No tasks yet' . PHP_EOL;
-			exit();
+			$this->output .= 'No tasks yet' . PHP_EOL;
 		}
 		return $todos;
 	}

@@ -58,7 +58,7 @@ class Todo
 		$title = trim($title);
 		if ($title === '')
 		{
-			throw new Exception('Title cannot be empty');
+			throw new Exception('Task cannot be empty');
 		}
 		$this->title = $title;
 	}

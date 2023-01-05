@@ -29,8 +29,11 @@ function main($arguments): void
 			undoneCommand($arguments);
 			break;
 		case 'list':
-			listCommand($arguments);
-			break;
+			$repo = new \Todolist\Repository\TodoRepository;
+			$command = new ListCommand($repo, $arguments);
+			$command->execute();
+			echo $command->getOutput();
+			exit($command->getStatusCode());
 		case 'remove':
 		case 'rm':
 			removeCommand($arguments);
